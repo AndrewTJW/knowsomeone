@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Props ) {
-    const URL = "http://localhost:3000/"
+    const URL = "https://knowsomeone-gfy6q7tvn-andrews-projects-48fa8a40.vercel.app"
     axios.defaults.withCredentials = true;
 
     const getRandomIntegerInclusive = (min: number, max: number, exception?: number): number => {
@@ -24,7 +24,7 @@ export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Prop
     }
 
     function RandomUserPicker() {
-        return axios.get("http://localhost:3000/getalluserdata")
+        return axios.get("https://knowsomeone-gfy6q7tvn-andrews-projects-48fa8a40.vercel.app/getalluserdata")
             .then((response) => {
                 const arr_user_data = response.data.data;
                 let userIndex: number | undefined;
@@ -59,11 +59,11 @@ export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Prop
                 if (response.status !== 200) throw new Error("Failed to deliver data!");
 
                 const data_package = { useremail: fetchedUserEmail, userdesc: fetchedUserDesc };
-                return axios.post("http://localhost:3000/insertdata", data_package);
+                return axios.post("https://knowsomeone-gfy6q7tvn-andrews-projects-48fa8a40.vercel.app/insertdata", data_package);
             })
             .then(() => {
                 console.log("Data passed successfully!");
-                return axios.get(`http://localhost:3000/particularuserdata?senduseremail=${fetchedUserEmail}`);
+                return axios.get(`https://knowsomeone-gfy6q7tvn-andrews-projects-48fa8a40.vercel.app/particularuserdata?senduseremail=${fetchedUserEmail}`);
             })
             .then((response) => {
                 const userdata = response.data.data;
@@ -73,7 +73,7 @@ export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Prop
 
                 return RandomUserPicker().then((selectedUser) => {
                     // Send email
-                    return axios.post('http://localhost:3000/sendemail', {
+                    return axios.post('https://knowsomeone-gfy6q7tvn-andrews-projects-48fa8a40.vercel.app/sendemail', {
                         userEmail: fetchedUserEmail,
                         userDesc: selectedUser.user_desc,
                     })

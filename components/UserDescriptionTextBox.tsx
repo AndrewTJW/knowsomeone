@@ -12,7 +12,7 @@ export default function UserDescriptionTextBox( {updateUserDesc}: Props ) {
 
     return (
         <TextInput 
-            style = {[styles.DescTextBoxContainer, {borderColor: focus ? 'yellow' : 'white'}, {color: 'white'}, {outline: 'none'}]}
+            style = {[styles.DescTextBoxContainer, {borderColor: focus ? 'yellow' : 'white'}, {color: 'white'}]}
             onChangeText={(userDesc) => {
                 setUserDesc(userDesc);
                 console.log(userDesc);

@@ -10,7 +10,7 @@ export default function UserTextBox ( {onFetchData}: Props ) {
     const [userEmail, setUserEmail] = useState("");
     return (
         <TextInput 
-            style = {[styles.TextBoxContainer, {borderColor: focus ? 'yellow' : 'white'}, {color: 'white'}, {outline: 'none'}]}
+            style = {[styles.TextBoxContainer, {borderColor: focus ? 'yellow' : 'white'}, {color: 'white'}]}
             onChangeText={(userEmail) => {
                 console.log(userEmail);
                 setUserEmail(userEmail);
