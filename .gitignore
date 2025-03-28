@@ -39,3 +39,4 @@ app-example
 
 #secret key for database
 secret_key/**
+.vercel

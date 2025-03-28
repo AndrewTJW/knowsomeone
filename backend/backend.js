@@ -8,7 +8,7 @@ const port = 3000;
 
 //enables CORS [Cross Origin Resource Sharing]
 app.use(cors({
-    "origin": "http://localhost:8081",
+    "origin": "https://knowsomeone-gfy6q7tvn-andrews-projects-48fa8a40.vercel.app",
     "credentials": true,
 }));
 
