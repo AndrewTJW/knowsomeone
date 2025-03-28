@@ -4,7 +4,7 @@ import cors from 'cors'
 import Mailjet from 'node-mailjet'
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT
 
 //enables CORS [Cross Origin Resource Sharing]
 app.use(cors({
@@ -110,5 +110,5 @@ app.get('/getalluserdata', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Server running on port ${port}`);
 });

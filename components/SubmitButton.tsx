@@ -24,7 +24,7 @@ export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Prop
     }
 
     function RandomUserPicker() {
-        return axios.get(`${URL}getalluserdata`)
+        return axios.get(`${URL}api/getalluserdata`)
             .then((response) => {
                 const arr_user_data = response.data.data;
                 let userIndex: number | undefined;
@@ -59,11 +59,11 @@ export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Prop
                 if (response.status !== 200) throw new Error("Failed to deliver data!");
 
                 const data_package = { useremail: fetchedUserEmail, userdesc: fetchedUserDesc };
-                return axios.post(`${URL}insertdata`, data_package);
+                return axios.post(`${URL}api/insertdata`, data_package);
             })
             .then(() => {
                 console.log("Data passed successfully!");
-                return axios.get(`${URL}particularuserdata?senduseremail=${fetchedUserEmail}`);
+                return axios.get(`${URL}api/particularuserdata?senduseremail=${fetchedUserEmail}`);
             })
             .then((response) => {
                 const userdata = response.data.data;
@@ -73,7 +73,7 @@ export default function SubmitButton ( {fetchedUserEmail, fetchedUserDesc}: Prop
 
                 return RandomUserPicker().then((selectedUser) => {
                     // Send email
-                    return axios.post(`${URL}sendemail`, {
+                    return axios.post(`${URL}api/sendemail`, {
                         userEmail: fetchedUserEmail,
                         userDesc: selectedUser.user_desc,
                     })
