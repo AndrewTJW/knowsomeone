@@ -32,6 +32,13 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["../assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf",
+                   "../assets/fonts/Roboto-VariableFont_wdth,wght.ttf"]
+        }
       ]
     ],
     "experiments": {
